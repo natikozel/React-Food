@@ -1,17 +1,18 @@
 import {log} from "../log";
 
 export interface ErrorUIProps {
-    err: Error
+    title: string;
+    err: Error;
 }
 
-export const ErrorUI = ({err}: ErrorUIProps) => {
+export const ErrorUI = ({title, err}: ErrorUIProps) => {
     log('<ErrorUI /> rendered', 3);
     console.log(err);
 
     return (
-        <>
-            <h1>An Error Occurred</h1>
+        <div className="error">
+            <h2>{title}</h2>
             <p>{err.message}</p>
-        </>
+        </div>
     );
 };

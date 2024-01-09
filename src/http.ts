@@ -1,5 +1,6 @@
 import {MealProps} from "./components/MealCard";
 import {log} from "./log";
+import {OrderProps} from "./components/Checkout";
 
 export const fetchAvailableMeals = async () => {
     log('<HTTP Fetch happening... />', 2, 'other');

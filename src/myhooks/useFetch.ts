@@ -10,7 +10,7 @@ export interface FetchProps {
     setData?: React.Dispatch<React.SetStateAction<any>>;
 }
 
-export const useFetch = (fetchFn: Function, initialValue: unknown) => {
+export const useFetch = (fetchFn: Function, initialValue?: unknown) => {
 
     log('<useFetch Hook is being used />', 2, 'other');
 

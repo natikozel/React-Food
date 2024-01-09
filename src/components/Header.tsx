@@ -12,7 +12,7 @@ import {Checkout} from "./Checkout";
 export const Header = (): React.JSX.Element => {
     log('<Header /> rendered', 2);
 
-    const {cart}: CartContextProps = useCartContext();
+    const {cart, clearCart}: CartContextProps = useCartContext();
     const {state, showCart, hideModal, showCheckout} = useUserContext();
     const itemsInCart: number = cart.reduce((total: number, item: MealProps) => total + item.quantity, 0);
 
@@ -23,7 +23,7 @@ export const Header = (): React.JSX.Element => {
         currentModal = <Cart cart={cart} onClose={hideModal} onCheckout={showCheckout}/>;
         cssClasses = 'modal cart';
     } else if (state === 'checkout') {
-        currentModal = <Checkout cart={cart} onClose={hideModal} onCheckout={showCheckout}/>;
+        currentModal = <Checkout cart={cart} onClose={hideModal} resetCart={clearCart} onCheckout={showCheckout}/>;
         cssClasses = 'modal';
     } else {
         currentModal = null;

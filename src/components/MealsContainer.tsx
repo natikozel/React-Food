@@ -15,7 +15,7 @@ export const MealsContainer = memo(() => {
     const {data, isFetching, error}: FetchProps = useFetch(fetchAvailableMeals, [] as Array<MealProps>);
     return (
         <div id="meals">
-            {error && <ErrorUI err={error!}/>}
+            {error && <ErrorUI title={'Failed to fetch available meals'} err={error!}/>}
             {!error && isFetching && !data.length ?
                 <p>Fetching Data...</p>
                 :

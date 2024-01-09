@@ -4,11 +4,11 @@ export interface InputProps {
     id: string;
 }
 
-export const Input = ({label, type, id}: InputProps) => {
+export const Input = ({label, id, ...props}: InputProps) => {
     return (
-        <div className="control">
+        <p className="control">
             <label htmlFor={id}>{label}</label>
-            <input type={type} id={id} name={id}></input>
-        </div>
+            <input required id={id} name={id} {...props}></input>
+        </p>
     );
 };
